@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <h1>Cadastro</h1>
+    <a href="{% url 'index' %}">Dashboard</a><br>
+    <table border="1">
+        {% if registros %}
+        {% for registro in registros %}
+        <tr>
+            <td>
+                Descrição
+            </td>
+            <td>
+                Valor
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{registro.descricao}}
+            </td>
+            <td>
+                {{registro.valor}}
+            </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        {% endif %}
+    </table>
+{% endblock %}
