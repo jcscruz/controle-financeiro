@@ -15,8 +15,8 @@ class Registro_Financeiro(models.Model):
 
     OPCOES_TIPO_CATEGORIA = [
         ("DESPESA FIXA","Despesa Fixa"),
-        ("RECEITA PARCELADA","Despesa Parcelada"),
-        ("RECEITA AVULSA","Despesa Avulsa"),
+        ("DESPESA PARCELADA","Despesa Parcelada"),
+        ("DESPESA AVULSA","Despesa Avulsa"),
         ("RECEITA FIXA","Receita Fixa"),
         ("RECEITA PARCELADA","Receita Parcelada"),
         ("RECEITA AVULSA","Receita Avulsa"),
@@ -28,6 +28,8 @@ class Registro_Financeiro(models.Model):
     ]
 
     OPCOES_COMPETENCIA = [
+        ("NOVEMBRO/2022","Novembro/2022"),
+        ("DEZEMBRO/2022","Dezembro/2022"),
         ("JANEIRO/" + str(datetime.now().year),"Janeiro/" + str(datetime.now().year)),
         ("FEVEREIRO/" + str(datetime.now().year),"Fevereiro/" + str(datetime.now().year)),
         ("MARCO/" + str(datetime.now().year),"Março/" + str(datetime.now().year)),
@@ -64,6 +66,7 @@ class Registro_Financeiro(models.Model):
     ]
 
     OPCOES_ORIGEM_DEBITO= [
+        ("", ""),
         ("CARTAO ITAU MASTER CARD PLATINUM","Cartão Itaú Master Platinum"),
         ("CARTAO ITAU VISA PLATINUM","Cartão Itaú Visa Platinum"),
         ("CARTAO ITAU PAO DE ACUCAR VISA PLATINUM","Cartão Itaú Pão de Açucar Visa Platinum"),
@@ -86,7 +89,7 @@ class Registro_Financeiro(models.Model):
     tipo = models.CharField(max_length=1000, choices=OPCOES_TIPO, default='')
     tipo_categoria = models.CharField(max_length=1000, choices=OPCOES_TIPO_CATEGORIA, default='')
     centro_de_custo = models.CharField(max_length=1000, choices=OPCOES_CENTRO_DE_CUSTO, default='')
-    origem_debito = models.CharField(max_length=1000, choices=OPCOES_ORIGEM_DEBITO, default='')
+    origem_debito = models.CharField(max_length=1000, choices=OPCOES_ORIGEM_DEBITO, default='', blank=True)
     origem_credito = models.CharField(max_length=1000, default='', null=True, blank=True)
     valor = models.DecimalField(null=False, max_digits=10,decimal_places=2)
     observacao = models.TextField(default='', blank=True)

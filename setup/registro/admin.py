@@ -5,7 +5,7 @@ from registro.models import Registro_Financeiro
 from django.contrib import admin
 
 class ListandoRegistros(admin.ModelAdmin):
-    list_display = ("id", "tipo", "tipo_categoria", "descricao", "valor", "competencia", "vencimento", "parcela", "total_parcela", "centro_de_custo", "origem_debito", "origem_credito", "consolidado", "observacao")
+    list_display = ("consolidado", "id", "tipo", "tipo_categoria", "descricao", "valor", "competencia", "vencimento", "parcela", "total_parcela", "centro_de_custo", "origem_debito", "origem_credito", "observacao")
     list_display_links = ("id","descricao")
     search_fields = ("descricao",)
     list_filter = ("tipo", "tipo_categoria", "consolidado", "centro_de_custo", "origem_debito", "competencia", "vencimento")
